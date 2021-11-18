@@ -5,22 +5,22 @@ using namespace std;
 #include<vector>
 #include<fstream>
 
-//string filePath = "D:\\ÏÈ·ÅÔÚÕâÀï°²×°°ü\\¼Æ¿Æ11905°à½¡¿µÂë41ÈË";
-//string qian = "D:\\VS´´½¨µÄÏîÄ¿\\ÏîÄ¿Á·ÊÖ\\excel¶Ô±È²éÑ¯\\qian.txt";
-//string hou = "D:\\VS´´½¨µÄÏîÄ¿\\ÏîÄ¿Á·ÊÖ\\excel¶Ô±È²éÑ¯\\hou.txt";
+//string filePath = "D:\\å…ˆæ”¾åœ¨è¿™é‡Œå®‰è£…åŒ…\\è®¡ç§‘11905ç­å¥åº·ç 41äºº";
+//string qian = "D:\\VSåˆ›å»ºçš„é¡¹ç›®\\é¡¹ç›®ç»ƒæ‰‹\\excelå¯¹æ¯”æŸ¥è¯¢\\qian.txt";
+//string hou = "D:\\VSåˆ›å»ºçš„é¡¹ç›®\\é¡¹ç›®ç»ƒæ‰‹\\excelå¯¹æ¯”æŸ¥è¯¢\\hou.txt";
 void getFiles(string path, vector<string>& files)
 {
-	//ÎÄ¼ş¾ä±ú
+	//æ–‡ä»¶å¥æŸ„
 	long   hFile = 0;
-	//ÎÄ¼şĞÅÏ¢
+	//æ–‡ä»¶ä¿¡æ¯
 	struct _finddata_t fileinfo;
 	string p;
 	if ((hFile = _findfirst(p.assign(path).append("\\*").c_str(), &fileinfo)) != -1)
 	{
 		do
 		{
-			//Èç¹ûÊÇÄ¿Â¼,µü´úÖ®
-			//Èç¹û²»ÊÇ,¼ÓÈëÁĞ±í
+			//å¦‚æœæ˜¯ç›®å½•,è¿­ä»£ä¹‹
+			//å¦‚æœä¸æ˜¯,åŠ å…¥åˆ—è¡¨
 			if ((fileinfo.attrib & _A_SUBDIR))
 			{
 				if (strcmp(fileinfo.name, ".") != 0 && strcmp(fileinfo.name, "..") != 0)
@@ -56,7 +56,7 @@ void duibi(string* a, int num, string* b, int num2)
 		int flag = 1;
 		for (int j = 0;j < num2;j++)
 		{
-			if (b[j].find(a[i]) != 4294967295)//ÕÒµ½ÁË
+			if (b[j].find(a[i]) != 4294967295)//æ‰¾åˆ°äº†
 			{
 				flag = 0;
 				break;
@@ -68,7 +68,7 @@ void duibi(string* a, int num, string* b, int num2)
 			ren++;
 		}
 	}
-	cout << "Î´½»ÈËÊıÎª£º" << ren << endl;
+	cout << "æœªäº¤äººæ•°ä¸ºï¼š" << ren << endl;
 }
 
 
@@ -77,10 +77,10 @@ void duibi(string* a, int num, vector<string> b, int num2)
 	int ren=0;
 	for (int i = 0;i < num;i++)
 	{
-		int flag = 1;//Ã»ÕÒµ½
+		int flag = 1;//æ²¡æ‰¾åˆ°
 		for (int j = 0;j < num2;j++)
 		{
-			if (b[j].find(a[i]) != 4294967295)//ÕÒµ½ÁË
+			if (b[j].find(a[i]) != 4294967295)//æ‰¾åˆ°äº†
 			{
 				flag = 0;
 				break;
@@ -92,10 +92,10 @@ void duibi(string* a, int num, vector<string> b, int num2)
 			ren++;
 		}
 	}
-	cout << "Î´½»ÈËÊıÎª£º" << ren<<endl;
+	cout << "æœªäº¤äººæ•°ä¸ºï¼š" << ren<<endl;
 }
 
-//µ¥Ğ±¸Ü×ªË«Ğ±¸Ü
+//å•æ–œæ è½¬åŒæ–œæ 
 void pathConvert_Single2Double(string& s) {
 	string::size_type pos = 0;
 	while ((pos = s.find('\\', pos)) != string::npos) {
@@ -107,17 +107,17 @@ void pathConvert_Single2Double(string& s) {
 void huoqulujin(string& qian, string& hou)
 {
 	int num = 0;
-	cout << "ÊÇ·ñÊ¹ÓÃÄ¬ÈÏÃûµ¥£¿(°´1)";
+	cout << "æ˜¯å¦ä½¿ç”¨é»˜è®¤åå•ï¼Ÿ(æŒ‰1)";
 	cin >> num;
-	if(num==1) qian = "D:\\VS´´½¨µÄÏîÄ¿\\ÏîÄ¿Á·ÊÖ\\excel¶Ô±È²éÑ¯\\qian.txt";
+	if(num==1) qian = "D:\\VSåˆ›å»ºçš„é¡¹ç›®\\é¡¹ç›®ç»ƒæ‰‹\\excelå¯¹æ¯”æŸ¥è¯¢\\qian.txt";
 	else
 	{
-		cout << "ÇëÊäÈëÍêÕûÃûµ¥µÄÎÄ¼şÂ·¾¶" << endl;
+		cout << "è¯·è¾“å…¥å®Œæ•´åå•çš„æ–‡ä»¶è·¯å¾„" << endl;
 		cin >> qian;
 		pathConvert_Single2Double(qian);
 	}
 	
-	cout << "ÇëÊäÈëÒÑ½»Ãûµ¥µÄÎÄ¼şÂ·¾¶" << endl;
+	cout << "è¯·è¾“å…¥å·²äº¤åå•çš„æ–‡ä»¶è·¯å¾„" << endl;
 	cin >> hou;
 	pathConvert_Single2Double(hou);
 }
@@ -125,10 +125,10 @@ void huoqulujin(string& qian, string& hou)
 
 int main()
 {
-	cout << "ÇëÎÊÄãÊÇÑ¡ÔñÁ½¸öÎÄ±¾ÎÄ¼şÊı¾İ¶Ô±È£¬»¹ÊÇÎÄ±¾ÎÄ¼şÓëÎÄ¼ş¼ĞÀïµÄÎÄ¼şÃû£¿" << endl
-		<< "1.Ñ¡ÔñÁ½¸öÎÄ±¾ÎÄ¼şÊı¾İ¶Ô±È" << endl
-		<< "2.ÎÄ±¾ÎÄ¼şÓëÎÄ¼ş¼ĞÀïµÄÎÄ¼şÃû" << endl
-		<< "ÇëÊäÈëÄúµÄÑ¡Ôñ£º";
+	cout << "è¯·é—®ä½ æ˜¯é€‰æ‹©ä¸¤ä¸ªæ–‡æœ¬æ–‡ä»¶æ•°æ®å¯¹æ¯”ï¼Œè¿˜æ˜¯æ–‡æœ¬æ–‡ä»¶ä¸æ–‡ä»¶å¤¹é‡Œçš„æ–‡ä»¶åï¼Ÿ" << endl
+		<< "1.é€‰æ‹©ä¸¤ä¸ªæ–‡æœ¬æ–‡ä»¶æ•°æ®å¯¹æ¯”" << endl
+		<< "2.æ–‡æœ¬æ–‡ä»¶ä¸æ–‡ä»¶å¤¹é‡Œçš„æ–‡ä»¶å" << endl
+		<< "è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©ï¼š";
 	int select;
 	while (1)
 	{
@@ -140,12 +140,12 @@ int main()
 
 			string a[100];
 			int num;
-			num = shuju(qian, a);  //´æ·ÅÊı¾İ
+			num = shuju(qian, a);  //å­˜æ”¾æ•°æ®
 			string b[100];
 			int num2;
 			num2 = shuju(hou, b);
 
-			duibi(a, num, b, num2);  //½øĞĞ¶Ô±È
+			duibi(a, num, b, num2);  //è¿›è¡Œå¯¹æ¯”
 			system("pause");
 			exit(1);
 
@@ -156,9 +156,9 @@ int main()
 			huoqulujin(qian, hou);
 			string a[100];
 			int num;
-			num = shuju(qian, a);  //´æ·ÅÊı¾İ
+			num = shuju(qian, a);  //å­˜æ”¾æ•°æ®
 			vector<string> files;
-			//»ñÈ¡¸ÃÂ·¾¶ÏÂµÄËùÓĞÎÄ¼ş
+			//è·å–è¯¥è·¯å¾„ä¸‹çš„æ‰€æœ‰æ–‡ä»¶
 			getFiles(hou, files);
 			int size = files.size();
 
@@ -168,7 +168,7 @@ int main()
 		}
 		else
 		{
-			cout << "ÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+			cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 		}
 	}
 	
